@@ -19,6 +19,22 @@ cur_frm.cscript.onload = function(doc, dt, dn) {
 	cur_frm.cscript.load_defaults(doc, dt, dn);
 }
 
+// Customization for adding create enquiry button on customer
+cur_frm.cscript.refresh=function(doc,cdt,cdn){
+  if(!this.frm.doc.__islocal){
+      cur_frm.add_custom_button(__('Create Enquiry'),
+      cur_frm.cscript['Create Enquiry']);
+    }
+
+ }
+
+cur_frm.cscript['Create Enquiry'] = function() {
+	frappe.model.open_mapped_doc({
+		method: "erpnext.selling.doctype.customer.customer.create_customer_enquiry",
+		frm: cur_frm
+	})
+}
+
 cur_frm.cscript.load_defaults = function(doc, dt, dn) {
 	doc = locals[doc.doctype][doc.name];
 	if(!(doc.__islocal && doc.lead_name)) { return; }
