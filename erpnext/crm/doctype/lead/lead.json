@@ -164,7 +164,7 @@
    "print_hide": 0, 
    "read_only": 0, 
    "report_hide": 0, 
-   "reqd": 0, 
+   "reqd": 1, 
    "search_index": 1, 
    "set_only_once": 0, 
    "unique": 0
@@ -1032,7 +1032,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-09-11 13:23:31.615546", 
+ "modified": "2015-09-28 11:52:03.976820", 
  "modified_by": "Administrator", 
  "module": "CRM", 
  "name": "Lead", 
