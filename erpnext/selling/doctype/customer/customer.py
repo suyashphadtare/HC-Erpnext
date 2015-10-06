@@ -8,6 +8,7 @@ from frappe import _, msgprint, throw
 import frappe.defaults
 from frappe.utils import flt
 from frappe.desk.reportview import build_match_conditions
+from frappe.model.mapper import get_mapped_doc
 from erpnext.utilities.transaction_base import TransactionBase
 from erpnext.utilities.address_and_contact import load_address_and_contact
 from erpnext.accounts.party import validate_party_accounts
@@ -226,3 +227,18 @@ def get_credit_limit(customer, company):
 			frappe.db.get_value("Company", company, "credit_limit")
 
 	return credit_limit
+
+
+#Customization for creating enquiry from customer
+@frappe.whitelist()
+def create_customer_enquiry(source_name, target_doc=None):
+	def set_missing_values(source, target):
+		target.enquiry_from = "Customer"
+	target_doc = get_mapped_doc("Customer", source_name,
+		{"Customer": {
+			"doctype": "Enquiry",
+			"field_map": {
+				"customer": source_name
+			},
+		}}, target_doc,set_missing_values)
+	return target_doc

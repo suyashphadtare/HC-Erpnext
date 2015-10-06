@@ -370,6 +370,7 @@ def make_delivery_note(source_name, target_doc=None):
 		}
 	}, target_doc, set_missing_values)
 
+	
 	return target_doc
 
 @frappe.whitelist()
