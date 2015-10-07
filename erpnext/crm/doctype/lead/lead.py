@@ -57,13 +57,11 @@ class Lead(SellingController):
 
 	#Customization Validation for emailid
 	def check_email_id_is_unique(self):
-		frappe.errprint("in validate")
 		if self.email_id:
 			# validate email is unique
 			email_list = frappe.db.sql("""select name from tabLead where email_id=%s""",
 				self.email_id)
 			email_list = [e[0] for e in email_list if e[0]!=self.name]
-			frappe.errprint(email_list)
 			if len(email_list) > 0:
 				frappe.throw(_("Email id must be unique, already exists for {0}").format(comma_and(email_list)))
 
