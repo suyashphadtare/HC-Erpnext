@@ -37,10 +37,10 @@ erpnext.LeadController = frappe.ui.form.Controller.extend({
 			// 	frappe.boot.doctype_icons["Quotation"], "btn-default");
 		}
 
-		if(!this.frm.doc.__islocal){
-			this.frm.add_custom_button(__("Create Enquiry"), this.create_enquiry,
-				frappe.boot.doctype_icons["Enquiry"], "btn-default");
-		}
+		// if(!this.frm.doc.__islocal){
+		// 	this.frm.add_custom_button(__("Create Enquiry"), this.create_enquiry,
+		// 		frappe.boot.doctype_icons["Enquiry"], "btn-default");
+		// }
 
 		if(!this.frm.doc.__islocal) {
 			erpnext.utils.render_address_and_contact(cur_frm);
