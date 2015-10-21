@@ -575,7 +575,7 @@ $.extend(erpnext.wiz, {
 							label:__("Contact Name") + " " + i, placeholder:__("Contact Name")}
 					])
 				}
-				slide.fields[1].reqd = 1;
+				//slide.fields[1].reqd = 1;
 			},
 			css_class: "two-column"
 		},
