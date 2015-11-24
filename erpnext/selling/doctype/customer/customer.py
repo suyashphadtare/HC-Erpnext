@@ -34,6 +34,10 @@ class Customer(TransactionBase):
 	def validate(self):
 		self.flags.is_new_doc = self.is_new()
 		validate_party_accounts(self)
+		if not self.email_id:
+			frappe.msgprint("Email ID is mandatory",raise_exception=1)
+
+
 
 	def update_lead_status(self):
 		if self.lead_name:
