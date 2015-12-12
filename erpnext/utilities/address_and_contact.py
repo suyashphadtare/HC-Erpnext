@@ -73,6 +73,7 @@ def get_permission_query_conditions(doctype):
 
 		return "( " + " or ".join(conditions) + " )"
 
+
 def get_permitted_and_not_permitted_links(doctype):
 	permitted_links = []
 	not_permitted_links = []
