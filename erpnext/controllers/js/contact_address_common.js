@@ -49,6 +49,9 @@ cur_frm.cscript.onload = function(doc, cdt, cdn) {
 						(refdoc.doctype == "Enquiry" && refdoc.enquiry_from=="Lead")) {
 						cur_frm.set_value("lead", refdoc.lead || refdoc.name);
 						cur_frm.set_value("lead_name", refdoc.customer_name || refdoc.company_name || refdoc.lead_name);
+						cur_frm.set_value("state",refdoc.state)
+						cur_frm.set_value("city",refdoc.city)
+						//cur_frm.set_value("location",refdoc.location)
 						if(cur_frm.doc.doctype==="Address")
 							cur_frm.set_value("address_title", cur_frm.doc.lead_name);
 				}
